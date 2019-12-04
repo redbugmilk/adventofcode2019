@@ -2,11 +2,20 @@ const readline = require('readline');
 const fs = require('fs');
 const { bindCallback, } = require('rxjs');
 
+const getFuelMass = value => Math.floor(parseInt(value, 10) / 3) - 2;
+
+const getTotalFuelMass = (value, totalFuelMass) => {
+    const fuelMass = getFuelMass(value);
+    return fuelMass > 0 ? getTotalFuelMass(fuelMass, totalFuelMass + fuelMass) :totalFuelMass;
+}
+
 const callBack = lines => {
-    const result = lines.reduce(result, line => {
-        result += Math.floor(parseInt(line, 10) / 3) - 2;
+    let totalFuelValue = 0;
+    lines.forEach(line => {
+        const result = getTotalFuelMass(line, 0);
+        totalFuelValue += result;
     });
-    console.log("Result ", result)
+    console.log("TotalFuelValue ", totalFuelValue)
 }
 
 function _readLines(path, callBack) {
