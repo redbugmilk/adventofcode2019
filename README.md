@@ -1,5 +1,4 @@
-# Advent of Code 2019
+Advent of Code
 
-https://adventofcode.com/2019
-
-Day 1 - Done with Javascript and RxJS
+2019 - 1
+2020 - 1
