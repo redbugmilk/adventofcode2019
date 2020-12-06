@@ -1,3 +1,3 @@
-const convertStringToArray = (expenses) => expenses.split("\n");
+const convertStringToArray = (string, splitBy) => string.split(splitBy);
 
 exports.convertStringToArray = convertStringToArray;

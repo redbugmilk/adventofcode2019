@@ -27,7 +27,7 @@ const findWrongPassword = (passwords) => {
 };
 
 const sumWrongPassword = (password) => {
-  const passwords = convertStringToArray(password);
+  const passwords = convertStringToArray(password,"\n");
   const wrongPasswords = findWrongPassword(passwords);
 
   return wrongPasswords && wrongPasswords.filter(Boolean).length;

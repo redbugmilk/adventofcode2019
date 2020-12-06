@@ -27,7 +27,7 @@ const findTheTrees = (lines) => {
 };
 
 const numberOfTrees = (map) => {
-  const lines = convertStringToArray(map);
+  const lines = convertStringToArray(map,"\n");
   const trees = findTheTrees(lines);
 
   return trees;
