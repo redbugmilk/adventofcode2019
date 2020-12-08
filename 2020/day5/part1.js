@@ -11,12 +11,13 @@ const seatsCalculation = (positions, instructions, pattern) => {
     if (instruction === pattern[1]) {
       positions[0] = positions[1] - diff;
     }
+    // console.log(`start:${positions[0]} end:${positions[1]}`)
   });
   return positions;
 };
 
 const findRow = (instructions) => {
-  const positions = [0, 127];
+  const positions = [1, 128];
   seatsCalculation(positions, instructions, ["F", "B"]);
   var lastInstruction = instructions.split("").pop();
   return lastInstruction === "F" ? positions[0] : positions[1];
@@ -31,10 +32,10 @@ const findColumn = (instructions) => {
 
 const calculateSeatId = (seat) => {
   const row = findRow(seat.substring(0, 6));
-  console.log(row);
+  // console.log(row);
   const column = findColumn(seat.substring(7));
-  console.log(column);
-  return row * 8 + column;
+  // console.log(column);
+  return (row-2) * 8 + column;
 };
 
 const seatWithHighestId = (seats) => {
