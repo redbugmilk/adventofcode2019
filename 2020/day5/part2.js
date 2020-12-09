@@ -3,7 +3,7 @@ const { convertStringToArray } = require("../utils/arrays");
 
 const seatsCalculation = (positions, instructions, pattern) => {
   const listOfInstructions = instructions.split("");
-  listOfInstructions.forEach((instruction,) => {
+  listOfInstructions.forEach((instruction) => {
     const diff = Math.trunc((positions[1] - positions[0]) / 2);
     if (instruction === pattern[0]) {
       positions[1] = diff + positions[0];
@@ -32,17 +32,17 @@ const findColumn = (instructions) => {
 
 const calculateSeatId = (seat) => {
   const row = findRow(seat.substring(0, 6));
-  // console.log(row);
   const column = findColumn(seat.substring(7));
-  // console.log(column);
-  return (row-1) * 8 + column;
+  const id = (row-1) * 8 + column;
+  return { row: row - 1, column, id };
 };
 
 const seatWithHighestId = (seats) => {
-  const result = seats.map((seat) => calculateSeatId(seat));
-  return result.reduce((accumulator, actualValue) =>
-    Math.max(accumulator, actualValue)
-  );
+  const orderSeats = {}
+  const result = seats.map((seat) => {
+    const { row, column, id } = calculateSeatId(seat);
+    console.log(`row: ${row} column: ${column} id: ${id}`)
+  });
 };
 
 const findSeatWithHighestId = (seats) => {
