@@ -1,0 +1,17 @@
+{
+  "name": "day1",
+  "version": "1.0.0",
+  "description": "advent code day 1",
+  "main": "index.ts",
+  "author": "Joana Correia",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.10",
+    "vite": "^3.2.4",
+    "vitest": "^0.25.3"
+  },
+  "scripts": {
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  }
+}
